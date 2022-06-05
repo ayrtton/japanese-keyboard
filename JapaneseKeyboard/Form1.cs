@@ -15,6 +15,25 @@ namespace JapaneseKeyboard
         public Form1()
         {
             InitializeComponent();
+
+            this.TopMost = true;
         }
-    }
+
+		protected override CreateParams CreateParams
+        {
+            get {
+                CreateParams param = base.CreateParams;
+                param.ExStyle |= 0x08000000;
+
+                return param; 
+            }
+        }
+
+		private void SendKey(object sender, EventArgs e)
+		{
+            Button btn = (Button)sender;
+
+            SendKeys.Send(btn.Text);
+		}
+	}
 }
