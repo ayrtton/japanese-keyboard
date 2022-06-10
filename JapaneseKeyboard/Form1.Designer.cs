@@ -41,7 +41,6 @@ namespace JapaneseKeyboard
             this.ho = new System.Windows.Forms.Button();
             this.wa = new System.Windows.Forms.Button();
             this.yo = new System.Windows.Forms.Button();
-            this.choonpu = new System.Windows.Forms.Button();
             this.se = new System.Windows.Forms.Button();
             this.ra = new System.Windows.Forms.Button();
             this.ni = new System.Windows.Forms.Button();
@@ -75,12 +74,12 @@ namespace JapaneseKeyboard
             this.so = new System.Windows.Forms.Button();
             this.sa = new System.Windows.Forms.Button();
             this.tsu = new System.Windows.Forms.Button();
-            this.sukuon = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
-            this.button40 = new System.Windows.Forms.Button();
             this.button41 = new System.Windows.Forms.Button();
             this.handakuten = new System.Windows.Forms.CheckBox();
             this.dakuten = new System.Windows.Forms.CheckBox();
+            this.shift = new System.Windows.Forms.CheckBox();
+            this.choonpu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // yu
@@ -262,21 +261,6 @@ namespace JapaneseKeyboard
             this.yo.Text = "よ";
             this.yo.UseVisualStyleBackColor = false;
             this.yo.Click += new System.EventHandler(this.SendKey);
-            // 
-            // choonpu
-            // 
-            this.choonpu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.choonpu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.choonpu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.choonpu.Font = new System.Drawing.Font("UD Digi Kyokasho N-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.choonpu.Location = new System.Drawing.Point(715, 173);
-            this.choonpu.Margin = new System.Windows.Forms.Padding(2);
-            this.choonpu.Name = "choonpu";
-            this.choonpu.Size = new System.Drawing.Size(60, 50);
-            this.choonpu.TabIndex = 20;
-            this.choonpu.Text = "一";
-            this.choonpu.UseVisualStyleBackColor = false;
-            this.choonpu.Click += new System.EventHandler(this.SendKey);
             // 
             // se
             // 
@@ -773,21 +757,6 @@ namespace JapaneseKeyboard
             this.tsu.UseVisualStyleBackColor = false;
             this.tsu.Click += new System.EventHandler(this.SendKey);
             // 
-            // sukuon
-            // 
-            this.sukuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sukuon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.sukuon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sukuon.Font = new System.Drawing.Font("UD Digi Kyokasho N-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.sukuon.Location = new System.Drawing.Point(779, 11);
-            this.sukuon.Margin = new System.Windows.Forms.Padding(2);
-            this.sukuon.Name = "sukuon";
-            this.sukuon.Size = new System.Drawing.Size(60, 50);
-            this.sukuon.TabIndex = 58;
-            this.sukuon.Text = "っ";
-            this.sukuon.UseVisualStyleBackColor = false;
-            this.sukuon.Click += new System.EventHandler(this.SendKey);
-            // 
             // button27
             // 
             this.button27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -802,21 +771,6 @@ namespace JapaneseKeyboard
             this.button27.Text = "。";
             this.button27.UseVisualStyleBackColor = false;
             this.button27.Click += new System.EventHandler(this.SendKey);
-            // 
-            // button40
-            // 
-            this.button40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button40.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button40.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button40.Font = new System.Drawing.Font("UD Digi Kyokasho N-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button40.Location = new System.Drawing.Point(779, 173);
-            this.button40.Margin = new System.Windows.Forms.Padding(2);
-            this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(60, 50);
-            this.button40.TabIndex = 61;
-            this.button40.Text = "・";
-            this.button40.UseVisualStyleBackColor = false;
-            this.button40.Click += new System.EventHandler(this.SendKey);
             // 
             // button41
             // 
@@ -865,17 +819,47 @@ namespace JapaneseKeyboard
             this.dakuten.UseVisualStyleBackColor = false;
             this.dakuten.CheckedChanged += new System.EventHandler(this.Dakuten_CheckedChanged);
             // 
+            // shift
+            // 
+            this.shift.Appearance = System.Windows.Forms.Appearance.Button;
+            this.shift.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.shift.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.shift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.shift.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.shift.Location = new System.Drawing.Point(715, 173);
+            this.shift.Margin = new System.Windows.Forms.Padding(2);
+            this.shift.Name = "shift";
+            this.shift.Size = new System.Drawing.Size(124, 50);
+            this.shift.TabIndex = 64;
+            this.shift.Text = "⇧";
+            this.shift.UseVisualStyleBackColor = false;
+            this.shift.CheckedChanged += new System.EventHandler(this.Shift_CheckedChanged);
+            // 
+            // choonpu
+            // 
+            this.choonpu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.choonpu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.choonpu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.choonpu.Font = new System.Drawing.Font("UD Digi Kyokasho N-R", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.choonpu.Location = new System.Drawing.Point(779, 11);
+            this.choonpu.Margin = new System.Windows.Forms.Padding(2);
+            this.choonpu.Name = "choonpu";
+            this.choonpu.Size = new System.Drawing.Size(60, 50);
+            this.choonpu.TabIndex = 20;
+            this.choonpu.Text = "一";
+            this.choonpu.UseVisualStyleBackColor = false;
+            this.choonpu.Click += new System.EventHandler(this.SendKey);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 235);
+            this.ClientSize = new System.Drawing.Size(850, 235);
+            this.Controls.Add(this.shift);
             this.Controls.Add(this.dakuten);
             this.Controls.Add(this.handakuten);
-            this.Controls.Add(this.button40);
             this.Controls.Add(this.button41);
             this.Controls.Add(this.button27);
-            this.Controls.Add(this.sukuon);
             this.Controls.Add(this.ro);
             this.Controls.Add(this.me);
             this.Controls.Add(this.ru);
@@ -942,7 +926,6 @@ namespace JapaneseKeyboard
         private System.Windows.Forms.Button ho;
         private System.Windows.Forms.Button wa;
         private System.Windows.Forms.Button yo;
-        private System.Windows.Forms.Button choonpu;
         private System.Windows.Forms.Button se;
         private System.Windows.Forms.Button ra;
         private System.Windows.Forms.Button ni;
@@ -976,12 +959,12 @@ namespace JapaneseKeyboard
         private System.Windows.Forms.Button so;
         private System.Windows.Forms.Button sa;
         private System.Windows.Forms.Button tsu;
-        private System.Windows.Forms.Button sukuon;
         private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button40;
         private System.Windows.Forms.Button button41;
         private System.Windows.Forms.CheckBox handakuten;
         private System.Windows.Forms.CheckBox dakuten;
+        private System.Windows.Forms.CheckBox shift;
+        private System.Windows.Forms.Button choonpu;
     }
 }
 

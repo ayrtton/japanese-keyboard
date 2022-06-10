@@ -128,5 +128,43 @@ namespace JapaneseKeyboard
                                 ho.Text = "ほ";
                         }
                 }
+
+                private void Shift_CheckedChanged(object sender, EventArgs e)
+                {
+                        if (shift.Checked)
+                        {
+                                shift.BackColor = System.Drawing.Color.FromArgb(180, 180, 220);
+                                shift.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 128, 128);
+
+                                a.Text = "ぁ";
+                                i.Text = "ぃ";
+                                u.Text = "ぅ";
+                                this.e.Text = "ぇ";
+                                o.Text = "ぉ";
+
+                                ya.Text = "ゃ";
+                                yu.Text = "ゅ";
+                                yo.Text = "ょ";
+                                tsu.Text = "っ";
+                                wa.Text = "を";
+                        }
+                        else
+                        {
+                                shift.BackColor = System.Drawing.Color.FromArgb(128, 255, 255);
+                                shift.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 192, 192);
+
+                                a.Text = "あ";
+                                i.Text = "い";
+                                u.Text = "う";
+                                this.e.Text = "え";
+                                o.Text = "お";
+
+                                ya.Text = "や";
+                                yu.Text = "ゆ";
+                                yo.Text = "よ";
+                                tsu.Text = "つ";
+                                wa.Text = "わ";
+                        }
+                }
         }
 }
