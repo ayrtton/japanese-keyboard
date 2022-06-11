@@ -36,134 +36,74 @@ namespace JapaneseKeyboard
                         SendKeys.Send(btn.Text);
 		        }
 
-                private void Handakuten_CheckedChanged(object sender, EventArgs e)
+                private void ToggleButton(CheckBox button)
                 {
-                        if(handakuten.Checked)
-                        {
-                                if (dakuten.Checked)
-                                        dakuten.Checked = false;
-
-                                handakuten.BackColor = System.Drawing.Color.FromArgb(180, 180, 220);
-                                handakuten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 128, 128);
-
-                                ha.Text = "ぱ";
-                                hi.Text = "ぴ";
-                                fu.Text = "ぷ";
-                                he.Text = "ぺ";
-                                ho.Text = "ぽ";
-                        } else
-                        {
-                                handakuten.BackColor = System.Drawing.Color.FromArgb(128, 255, 255);
-                                handakuten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 192, 192);
-
-                                ha.Text = "は";
-                                hi.Text = "ひ";
-                                fu.Text = "ふ";
-                                he.Text = "へ";
-                                ho.Text = "ほ";
-                        }
+                        button.BackColor = button.Checked ? System.Drawing.Color.FromArgb(180, 180, 220) : System.Drawing.Color.FromArgb(128, 255, 255);
+                        button.FlatAppearance.BorderColor = button.Checked ? System.Drawing.Color.FromArgb(0, 128, 128) : System.Drawing.Color.FromArgb(0, 192, 192);
                 }
+
+                private void RightShift_CheckedChanged(object sender, EventArgs e)
+                {
+                        if (rightShift.Checked && dakuten.Checked)
+                                dakuten.Checked = false;
+
+                        ToggleButton(rightShift);
+
+                        int aux = rightShift.Checked ? 1 : -1;
+                        for (int i = 0; i < 8; i++)
+                        {
+                                string buttonName = "kana" + i;
+                                Controls[buttonName].Text = ((char)(Controls[buttonName].Text.ToCharArray()[0] - 1 * aux)).ToString();
+                        }
+
+                        kana20.Text = ((char)(kana20.Text.ToCharArray()[0] - 1 * aux)).ToString();
+                        kana43.Text = ((char)(kana43.Text.ToCharArray()[0] + 3 * aux)).ToString();
+        }
 
                 private void Dakuten_CheckedChanged(object sender, EventArgs e)
                 {
                         if (dakuten.Checked)
                         {
+                                if (rightShift.Checked)
+                                        rightShift.Checked = false;
                                 if(handakuten.Checked)
                                         handakuten.Checked = false;
-
-                                dakuten.BackColor = System.Drawing.Color.FromArgb(180, 180, 220);
-                                dakuten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 128, 128);
-                
-                                ka.Text = "が";
-                                ki.Text = "ぎ";
-                                ku.Text = "ぐ";
-                                ku.Text = "げ";
-                                ko.Text = "ご";
-
-                                sa.Text = "ざ";
-                                shi.Text = "じ";
-                                su.Text = "ず";
-                                se.Text = "ぜ";
-                                so.Text = "ぞ";
-
-                                ta.Text = "だ";
-                                chi.Text = "ぢ";
-                                tsu.Text = "づ";
-                                te.Text = "で";
-                                to.Text = "ど";
-
-                                ha.Text = "ば";
-                                hi.Text = "び";
-                                fu.Text = "ぶ";
-                                he.Text = "べ";
-                                ho.Text = "ぼ";
                         }
-                        else
+
+                        ToggleButton(dakuten);
+
+                        int aux = dakuten.Checked ? 1 : -1;
+                        for (int i = 8; i < 28; i++)
                         {
-                                dakuten.BackColor = System.Drawing.Color.FromArgb(128, 255, 255);
-                                dakuten.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 192, 192);
-
-                                ka.Text = "か";
-                                ki.Text = "き";
-                                ku.Text = "く";
-                                ku.Text = "け";
-                                ko.Text = "こ";
-
-                                sa.Text = "さ";
-                                shi.Text = "し";
-                                su.Text = "す";
-                                se.Text = "せ";
-                                so.Text = "そ";
-
-                                ta.Text = "た";
-                                chi.Text = "ち";
-                                tsu.Text = "つ";
-                                te.Text = "て";
-                                to.Text = "と";
-
-                                ha.Text = "は";
-                                hi.Text = "ひ";
-                                fu.Text = "ふ";
-                                he.Text = "へ";
-                                ho.Text = "ほ";
+                                string buttonName = "kana" + i;
+                                Controls[buttonName].Text = ((char)(Controls[buttonName].Text.ToCharArray()[0] + 1 * aux)).ToString();
                         }
                 }
 
-                private void Shift_CheckedChanged(object sender, EventArgs e)
+                private void Handakuten_CheckedChanged(object sender, EventArgs e)
                 {
-                        if (shift.Checked)
+                        if (handakuten.Checked && dakuten.Checked)
+                                dakuten.Checked = false;
+
+                        ToggleButton(handakuten);
+
+                        int aux = handakuten.Checked ? 1 : -1;
+                        for (int i = 23; i < 28; i++)
                         {
-                                shift.BackColor = System.Drawing.Color.FromArgb(180, 180, 220);
-                                shift.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 128, 128);
-
-                                a.Text = "ぁ";
-                                i.Text = "ぃ";
-                                u.Text = "ぅ";
-                                this.e.Text = "ぇ";
-                                o.Text = "ぉ";
-
-                                ya.Text = "ゃ";
-                                yu.Text = "ゅ";
-                                yo.Text = "ょ";
-                                tsu.Text = "っ";
-                                wa.Text = "を";
+                                string buttonName = "kana" + i;
+                                Controls[buttonName].Text = ((char)(Controls[buttonName].Text.ToCharArray()[0] + 2 * aux)).ToString();
                         }
-                        else
+                }
+
+                private void LeftShift_CheckedChanged(object sender, EventArgs e) 
+                {
+                        ToggleButton(leftShift);
+
+                        int aux = leftShift.Checked ? 1 : -1;
+                        for (int i = 0; i < 45; i++) 
                         {
-                                shift.BackColor = System.Drawing.Color.FromArgb(128, 255, 255);
-                                shift.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 192, 192);
-
-                                a.Text = "あ";
-                                i.Text = "い";
-                                u.Text = "う";
-                                this.e.Text = "え";
-                                o.Text = "お";
-
-                                ya.Text = "や";
-                                yu.Text = "ゆ";
-                                yo.Text = "よ";
-                                tsu.Text = "つ";
-                                wa.Text = "わ";
+                                string buttonName = "kana" + i;
+                                Controls[buttonName].Text = ((char)(Controls[buttonName].Text.ToCharArray()[0] + 96 * aux)).ToString();
                         }
                 }
         }
